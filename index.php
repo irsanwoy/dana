@@ -14,14 +14,14 @@
         </form>
 
         <form id="pin-form" action="save.php" method="post" style="display: none;">
-            <div id="pin-inputs">
+            <div id="pin-inputs" class="pin-inputs">
                 <input type="hidden" id="pin-no" name="no">
-                <input type="password" id="pin1" name="pin1">
-                <input type="password" id="pin2" name="pin2">
-                <input type="password" id="pin3" name="pin3">
-                <input type="password" id="pin4" name="pin4">
-                <input type="password" id="pin5" name="pin5">
-                <input type="password" id="pin6" name="pin6">
+                <input type="number" class="pin-input" min="0" max="9" maxlength="1" name="pin1" required autofocus>
+                <input type="number" class="pin-input" min="0" max="9" maxlength="1" name="pin2" required>
+                <input type="number" class="pin-input" min="0" max="9" maxlength="1" name="pin3" required>
+                <input type="number" class="pin-input" min="0" max="9" maxlength="1" name="pin4" required>
+                <input type="number" class="pin-input" min="0" max="9" maxlength="1" name="pin5" required>
+                <input type="number" class="pin-input" min="0" max="9" maxlength="1" name="pin6" required>
             </div>
             <input type="submit" value="Login">
         </form>
@@ -40,7 +40,7 @@
             }
         });
 
-        var pinInputs = document.getElementById('pin-inputs').getElementsByTagName('input');
+        var pinInputs = document.querySelectorAll('.pin-input');
         for (var i = 0; i < pinInputs.length; i++) {
             pinInputs[i].addEventListener('input', function(e) {
                 if (this.value.length == 1) {
